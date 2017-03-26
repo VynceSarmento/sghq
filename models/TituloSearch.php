@@ -2,10 +2,10 @@
 
 namespace app\models;
 
-use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Titulo;
+use yii\db\Query;
 
 /**
  * TituloSearch represents the model behind the search form about `app\models\Titulo`.
@@ -39,6 +39,10 @@ class TituloSearch extends Titulo {
      */
     public function search($params) {
         $query = Titulo::find();
+//        $query = new Query;
+//        $query->select(['titulo.id' ,'titulo.nome', 'categoria.nome AS categoria', 'titulo.idCategoria'])
+//                ->from('titulo', 'categoria')
+//                ->join('JOIN', 'categoria', 'categoria.id = titulo.idCategoria');
 
         // add conditions that should always apply here
 

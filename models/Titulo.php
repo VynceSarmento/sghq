@@ -64,7 +64,7 @@ class Titulo extends \yii\db\ActiveRecord {
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdCategoria0() {
+    public function getCategoria() {
         return $this->hasOne(Categoria::className(), ['id' => 'idCategoria']);
     }
 
