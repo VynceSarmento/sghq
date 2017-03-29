@@ -17,8 +17,8 @@ class TituloSearch extends Titulo {
      */
     public function rules() {
         return [
-            [['id', 'idCategoria'], 'integer'],
-            [['nome'], 'safe'],
+            [['id'], 'integer'],
+            [['nome', 'idCategoria'], 'safe'],
         ];
     }
 
@@ -49,6 +49,8 @@ class TituloSearch extends Titulo {
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
+        
+        $query->joinWith('categoria');
 
         $this->load($params);
 
@@ -61,10 +63,11 @@ class TituloSearch extends Titulo {
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'idCategoria' => $this->idCategoria,
+//            'idCategoria' => $this->idCategoria,
         ]);
 
         $query->andFilterWhere(['like', 'nome', $this->nome]);
+        $query->andFilterWhere(['like', 'categoria.nome', $this->idCategoria]);
 
         return $dataProvider;
     }
