@@ -44,6 +44,9 @@ class SubtituloSearch extends Subtitulo {
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => 20,
+            ],
         ]);
         
         $query->joinWith('titulo');
