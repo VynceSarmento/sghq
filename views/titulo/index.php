@@ -23,8 +23,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-//            ['class' => 'yii\grid\SerialColumn'], //mosta número de linhas da coluna da Tabela            
-            'id',
+            ['class' => 'yii\grid\SerialColumn'], //mosta número de linhas da coluna da Tabela            
+//            'id',
             'nome',
             [
                 'attribute' => 'idCategoria',
