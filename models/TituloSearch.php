@@ -69,7 +69,7 @@ class TituloSearch extends Titulo {
 //            'idCategoria' => $this->idCategoria,
         ]);
 
-        $query->andFilterWhere(['like', 'nome', $this->nome]);
+        $query->andFilterWhere(['like', 'titulo.nome', $this->nome]);
         $query->andFilterWhere(['like', 'categoria.nome', $this->idCategoria]);
 
         return $dataProvider;

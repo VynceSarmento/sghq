@@ -65,7 +65,7 @@ class SubtituloSearch extends Subtitulo {
 //            'idTitulo' => $this->idTitulo,
         ]);
 
-        $query->andFilterWhere(['like', 'nome', $this->nome]);
+        $query->andFilterWhere(['like', 'subtitulo.nome', $this->nome]);
         $query->andFilterWhere(['like', 'titulo.nome', $this->idTitulo]);
 
         return $dataProvider;
