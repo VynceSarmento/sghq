@@ -39,11 +39,6 @@ class TituloSearch extends Titulo {
      */
     public function search($params) {
         $query = Titulo::find();
-
-//        $query = new Query;
-//        $query->select(['titulo.id' ,'titulo.nome', 'categoria.nome AS categoria', 'titulo.idCategoria'])
-//                ->from('titulo', 'categoria')
-//                ->join('JOIN', 'categoria', 'categoria.id = titulo.idCategoria');
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
