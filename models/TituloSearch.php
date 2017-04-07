@@ -71,6 +71,7 @@ class TituloSearch extends Titulo {
 
         $query->andFilterWhere(['like', 'titulo.nome', $this->nome]);
         $query->andFilterWhere(['like', 'categoria.nome', $this->idCategoria]);
+        $query->orderBy('titulo.nome');
 
         return $dataProvider;
     }

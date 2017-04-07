@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Titulo */
 
-$this->title = $model->id;
+$this->title = "Sistema Gerenciador de HQ's";
 $this->params['breadcrumbs'][] = ['label' => 'Titulos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
