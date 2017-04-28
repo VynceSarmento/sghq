@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema sghq
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema sghq
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `sghq` DEFAULT CHARACTER SET utf8 ;
+USE `sghq` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`categoria`
+-- Table `sghq`.`categoria`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`categoria` (
+CREATE TABLE IF NOT EXISTS `sghq`.`categoria` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(255) NULL,
   PRIMARY KEY (`id`))
@@ -28,9 +28,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`titulo`
+-- Table `sghq`.`titulo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`titulo` (
+CREATE TABLE IF NOT EXISTS `sghq`.`titulo` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(255) NOT NULL,
   `idCategoria` INT NOT NULL,
@@ -38,16 +38,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`titulo` (
   INDEX `fk_titulo_categoria1_idx` (`idCategoria` ASC),
   CONSTRAINT `fk_titulo_categoria1`
     FOREIGN KEY (`idCategoria`)
-    REFERENCES `mydb`.`categoria` (`id`)
+    REFERENCES `sghq`.`categoria` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`subtitulo`
+-- Table `sghq`.`subtitulo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`subtitulo` (
+CREATE TABLE IF NOT EXISTS `sghq`.`subtitulo` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(255) NOT NULL,
   `idTitulo` INT NOT NULL,
@@ -55,16 +55,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`subtitulo` (
   INDEX `fk_subtitulo_titulo_idx` (`idTitulo` ASC),
   CONSTRAINT `fk_subtitulo_titulo`
     FOREIGN KEY (`idTitulo`)
-    REFERENCES `mydb`.`titulo` (`id`)
+    REFERENCES `sghq`.`titulo` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`arquivo`
+-- Table `sghq`.`arquivo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`arquivo` (
+CREATE TABLE IF NOT EXISTS `sghq`.`arquivo` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(255) NOT NULL,
   `idTitulo` INT NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`arquivo` (
   INDEX `fk_arquivo_titulo1_idx` (`idTitulo` ASC, `idCategoria` ASC),
   CONSTRAINT `fk_arquivo_titulo1`
     FOREIGN KEY (`idTitulo` , `idCategoria`)
-    REFERENCES `mydb`.`titulo` (`id` , `idCategoria`)
+    REFERENCES `sghq`.`titulo` (`id` , `idCategoria`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
