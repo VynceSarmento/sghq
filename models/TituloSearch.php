@@ -5,7 +5,6 @@ namespace app\models;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Titulo;
-use yii\db\Query;
 
 /**
  * TituloSearch represents the model behind the search form about `app\models\Titulo`.
