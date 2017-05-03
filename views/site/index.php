@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Sistema Gerenciador de HQ';
 ?>
 <div class="site-index">
 
