@@ -67,7 +67,8 @@ class SubtituloSearch extends Subtitulo {
 
         $query->andFilterWhere(['like', 'subtitulo.nome', $this->nome]);
         $query->andFilterWhere(['like', 'titulo.nome', $this->idTitulo]);
-
+        $query->orderBy(['nome'=>SORT_ASC ]);
+        
         return $dataProvider;
     }
 
